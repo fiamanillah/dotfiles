@@ -1,0 +1,311 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 2,
+    "margin-left": 5,
+    "margin-right": 5,
+    "height": 32,
+    "spacing": 0,
+    "exclusive": true,
+    "all-outputs": false,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/sep",
+        "cpu",
+        "temperature",
+        "memory",
+        "custom/gpu",
+        "custom/sep",
+        "tray"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/media-prev",
+        "custom/media",
+        "custom/media-next"
+    ],
+    "modules-right": [
+        "network",
+        "custom/sep",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "bluetooth",
+        "custom/sep",
+        "idle_inhibitor",
+        "custom/timeout",
+        "custom/screenshot",
+        "custom/clipboard",
+        "custom/notification",
+        "custom/sep",
+        "power-profiles-daemon",
+        "custom/sep",
+        "battery",
+        "custom/power"
+    ],
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun -show-icons",
+        "tooltip-format": "Open Application Launcher"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": false,
+        "active-only": false,
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "󱥁",
+            "5": "",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "11": "",
+            "12": "󰡨",
+            "13": "",
+            "14": "󰊗",
+            "15": "󰻠",
+            "16": "6",
+            "17": "7",
+            "18": "8",
+            "19": "9",
+            "20": "10",
+            "urgent": "󱈸",
+            "focused": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "eDP-1": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+            ],
+            "HDMI-A-1": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+            ]
+        }
+    },
+    "clock": {
+        "interval": 1,
+        "format": "󰥔 {:%I:%M %p}",
+        "format-alt": "󰃭 {:%A, %d %B %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ff9800'><b>{}</b></span>",
+                "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "custom/media-prev": {
+        "format": "{text}",
+        "return-type": "json",
+        "on-click": "playerctl previous",
+        "exec": "STATUS=$(playerctl status 2>/dev/null | head -n 1); jq -n -c --arg class \"$STATUS\" '{\"text\": \"󰒮\", \"class\": $class}'",
+        "exec-if": "playerctl status 2>/dev/null | grep -qE 'Playing|Paused'",
+        "interval": 1,
+        "tooltip": false
+    },
+    "custom/media": {
+        "format": "{icon}",
+        "return-type": "json",
+        "format-icons": {
+            "Playing": "󰏤",
+            "Paused": "󰐊"
+        },
+        "on-click": "playerctl play-pause",
+        "exec": "STATUS=$(playerctl status 2>/dev/null | head -n 1); TITLE=$(playerctl metadata --format '{{title}} - {{artist}}' 2>/dev/null | head -n 1); jq -n -c --arg alt \"$STATUS\" --arg tooltip \"$TITLE\" '{\"alt\": $alt, \"class\": $alt, \"tooltip\": $tooltip}'",
+        "exec-if": "playerctl status 2>/dev/null | grep -qE 'Playing|Paused'",
+        "interval": 1
+    },
+    "custom/media-next": {
+        "format": "{text}",
+        "return-type": "json",
+        "on-click": "playerctl next",
+        "exec": "STATUS=$(playerctl status 2>/dev/null | head -n 1); jq -n -c --arg class \"$STATUS\" '{\"text\": \"󰒭\", \"class\": $class}'",
+        "exec-if": "playerctl status 2>/dev/null | grep -qE 'Playing|Paused'",
+        "interval": 1,
+        "tooltip": false
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "on-click": "kitty btop",
+        "tooltip-format": "CPU Usage: {usage}%"
+    },
+    "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Core Temp: {temperatureC}°C"
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB"
+    },
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null | awk '{print \"󰢮 \" $1 \"%\"}'",
+        "interval": 3,
+        "tooltip": true,
+        "onclick": "kitty nvtop"
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "tooltip-format": "Brightness: {percent}%"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Mute",
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click": "pypr toggle volume",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+        "tooltip-format": "Volume: {volume}%\n{desc}"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭 Mute",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +2%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -2%",
+        "tooltip-format": "Mic Volume: {volume}%"
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "  {bandwidthDownBits}   {bandwidthUpBits} ",
+        "format-ethernet": "󰈀  {bandwidthDownBits}   {bandwidthUpBits} ",
+        "format-disconnected": "󰤭 N/A",
+        "on-click": "nm-connection-editor",
+        "on-click-right": "kitty -e nmtui",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "max-length": 50,
+        "tooltip-format": "Network: {essid}\nIP: {ipaddr}\nGateway: {gwaddr}"
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager",
+        "tooltip-format": "Bluetooth Status",
+        "tooltip-format-connected": "{device_alias} connected"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
+    "custom/notification": {
+        "format": "󰂚",
+        "on-click": "swaync-client -t -sw",
+        "tooltip-format": "Notification Center"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰛐",
+            "deactivated": "󰾪"
+        },
+        "tooltip-format": "Screen Awake: {status}"
+    },
+    "custom/timeout": {
+        "format": "",
+        "on-click": "sh ~/.config/hypr/scripts/timeout_selector.sh",
+        "tooltip-format": "Select Screen Timeout"
+    },
+    "custom/screenshot": {
+        "format": "󰹑",
+        "on-click": "grimblast --notify copy area",
+        "on-click-right": "grimblast --notify copy output",
+        "tooltip-format": "Left Click: Area Screenshot\nRight Click: Full Screenshot"
+    },
+    "custom/clipboard": {
+        "format": "󰅍",
+        "on-click": "cliphist list | rofi -dmenu -p '󰅌 Clipboard' | cliphist decode | wl-copy",
+        "tooltip-format": "Clipboard Manager"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰁹"
+        ],
+        "tooltip-format": "Battery: {capacity}%\nTime remaining: {time}"
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip-format": "Power Menu"
+    },
+    "custom/sep": {
+        "format": "│",
+        "tooltip": false
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    }
+}

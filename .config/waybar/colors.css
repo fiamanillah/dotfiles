@@ -1,0 +1,12 @@
+/* Master Color Palette */
+@define-color bg #11111b; /* Deep dark background */
+@define-color bg-module #1e1e2e; /* Slightly lighter background for modules */
+@define-color fg #cdd6f4; /* Main text color */
+@define-color fg-muted #a6adc8; /* Dimmed text color */
+
+@define-color orange #ff9800; /* Vibrant primary orange */
+@define-color orange-alt #ff5722; /* Deeper burnt orange for gradients/accents */
+
+@define-color red #ff2b2b; /* Error/Critical (e.g., low battery) */
+@define-color green #7ef774; /* Success/Charging */
+@define-color blue #5c8bf7; /* Info */

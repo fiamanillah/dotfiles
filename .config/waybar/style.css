@@ -1,0 +1,214 @@
+@import 'colors.css';
+
+* {
+    font-family: 'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font', monospace;
+    font-size: 15px;
+    font-weight: 800;
+    min-height: 0; /* Prevents module jittering */
+}
+
+window#waybar {
+    /* Transparent background to allow Hyprland's blur to show through */
+    background: transparent;
+}
+
+/* Tooltip Styling */
+tooltip {
+    background: alpha(@bg, 0.6); /* More transparent for blur */
+    border: 1px solid alpha(@orange, 0.6);
+    border-radius: 12px 4px 12px 4px; /* Unique asymmetric shape */
+}
+
+tooltip label {
+    color: @fg;
+    padding: 4px 8px;
+}
+
+/* Island Containers - Unique Asymmetric Shapes, No Shadow, Kept Borders */
+.modules-left {
+    background: alpha(@bg, 0.4); /* Semi-transparent for blur */
+    border: 2px solid alpha(@orange, 0.5);
+    border-radius: 16px 4px 16px 4px; /* Unique leaf-like shape sloping right */
+    padding: 0;
+    margin: 0;
+}
+
+.modules-center {
+    background: alpha(@bg, 0.4);
+    border: 2px solid alpha(@orange, 0.5);
+    border-radius: 8px; /* Clean symmetric shape for the center */
+    padding: 0;
+    margin: 0;
+}
+
+.modules-right {
+    background: alpha(@bg, 0.4);
+    border: 2px solid alpha(@orange, 0.5);
+    border-radius: 4px 16px 4px 16px; /* Mirrored shape sloping left */
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual Module Styling - Minimized Spacing */
+#custom-launcher,
+#workspaces,
+#cpu,
+#temperature,
+#memory,
+#custom-gpu,
+#disk,
+#clock,
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#custom-notification,
+#idle_inhibitor,
+#custom-timeout,
+#custom-screenshot,
+#custom-clipboard,
+#custom-power {
+    padding: 0px 5px; /* Lowest comfortable padding */
+    margin: 0; /* Removed margin completely */
+    background: transparent; /* Allows the container's blur to act as the background */
+    border-radius: 0;
+    color: @fg;
+    transition: all 0.2s ease;
+}
+
+/* Target outer modules to match the unique container curves */
+#custom-launcher {
+    color: @bg;
+    background: alpha(@orange, 0.9);
+    border-radius: 14px 0px 0px 2px; /* Hugs the left inner curve */
+    font-size: 16px;
+    padding: 0px 10px 0px 8px;
+}
+
+#custom-launcher:hover {
+    background: @fg;
+    color: @orange;
+}
+
+#workspaces button {
+    color: @fg-muted;
+    padding: 0 2px;
+    margin: 0 1px;
+    min-width: 20px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Sleeker active workspace indicator */
+#workspaces button.active {
+    color: @orange;
+    background: transparent;
+    border-bottom: 2px solid @orange;
+}
+
+#workspaces button:hover {
+    background: alpha(@fg-muted, 0.15);
+    color: @fg;
+}
+
+#clock {
+    color: @orange;
+    background: transparent;
+    padding: 0px 8px;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+#clock:hover {
+    color: @fg;
+}
+
+/* Media Player Connected Pill - Flattened spacing */
+#custom-media-prev,
+#custom-media,
+#custom-media-next {
+    color: @green;
+    background: transparent;
+    font-size: 13px;
+    padding: 0px 3px;
+    margin: 0;
+    transition: all 0.2s ease;
+}
+
+#custom-media-prev {
+    padding-left: 6px;
+}
+
+#custom-media-next {
+    padding-right: 6px;
+}
+
+#custom-media-prev:hover,
+#custom-media:hover,
+#custom-media-next:hover {
+    color: @orange;
+}
+
+#custom-media-prev.Paused,
+#custom-media.Paused,
+#custom-media-next.Paused {
+    color: @fg-muted;
+}
+
+#custom-media-prev.Paused:hover,
+#custom-media.Paused:hover,
+#custom-media-next.Paused:hover {
+    color: @fg;
+}
+
+/* Module Group Separator */
+#custom-sep {
+    background: transparent;
+    color: alpha(@orange, 0.3);
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Power Button Specifics */
+#custom-power {
+    background: alpha(@red, 0.85);
+    color: @bg;
+    padding: 0px 8px 0px 6px;
+    border-radius: 0px 14px 2px 0px; /* Hugs the right inner curve */
+    font-weight: 900;
+    font-size: 14px;
+}
+
+#custom-power:hover {
+    background: @red;
+    color: @fg;
+}
+
+/* Critical & Charging States */
+#battery.critical,
+#cpu.critical,
+#temperature.critical {
+    color: @red;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @green;
+}
+
+/* Hover Effects (No shadows) */
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover,
+#custom-timeout:hover,
+#custom-screenshot:hover,
+#custom-clipboard:hover {
+    background: alpha(@orange, 0.1);
+    color: @orange;
+}
