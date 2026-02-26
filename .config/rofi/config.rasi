@@ -1,0 +1,117 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Windows";
+    drun-display-format: "{name}";
+    
+    /* Enable mouse hover selection */
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    /* Master Color Palette - Updated with Hex Transparency for Blur */
+    bg: #11111b99;        /* 60% transparent base #11111b */
+    bg-alt: #1e1e2e80;    /* 50% transparent alternate #1e1e2e */
+    bg-selected: #ff980026; /* 15% opacity orange */
+    fg: #cdd6f4;
+    fg-alt: #a6adc8;
+    orange: #ff9800;
+    
+    /* Global Settings */
+    font: "CaskaydiaCove Nerd Font 13";
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+/* The Main Floating Window */
+window {
+    width: 750px;
+    border: 2px solid;
+    border-color: #ff980080; /* 50% transparent orange border */
+    border-radius: 20px;
+    background-color: @bg;
+    padding: 20px;
+}
+
+/* The Layout Container */
+mainbox {
+    background-color: transparent;
+    spacing: 20px;
+}
+
+/* The Search Bar Area */
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 14px;
+    padding: 16px 20px;
+    spacing: 15px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @orange;
+    font: "CaskaydiaCove Nerd Font Bold 14";
+    vertical-align: 0.5;
+}
+
+entry {
+    
+    placeholder-color: @fg-alt;
+    text-color: @fg;
+    vertical-align: 0.5;
+    font: "CaskaydiaCove Nerd Font 13";
+}
+
+/* The Application List (Properly configured to 2 Columns) */
+listview {
+    background-color: transparent;
+    columns: 2;
+    lines: 8;
+    spacing: 10px;
+    scrollbar: false;
+    padding: 5px 0px 0px 0px;
+    fixed-height: true;
+}
+
+/* Individual List Items */
+element {
+    padding: 10px 15px;
+    border-radius: 12px;
+    background-color: transparent;
+    spacing: 15px;
+}
+
+/* Fixes Rofi's ugly default alternating grey lines */
+element normal normal, element alternate normal {
+    text-color: @fg;
+    background-color: transparent;
+}
+
+/* Hover/Selected items (The Orange Glow) */
+element selected normal {
+    background-color: @bg-selected;
+    text-color: @orange;
+     border: 2px solid;
+    border-color: #ff980080; /* 50% transparent orange border */
+    border-radius: 10px;
+    background-color: @bg;
+}
+
+element-icon {
+    size: 32px; /* Larger, crisper icons */
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+    background-color: transparent;
+    font: "CaskaydiaCove Nerd Font 13";
+}

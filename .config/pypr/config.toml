@@ -1,0 +1,41 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "expose",
+  "fetch_client_menu",
+  "layout_center",
+  "lost_windows",
+  "shift_monitors",
+  "system_notifier",
+  "workspaces_follow_focus"
+]
+
+# Dropdown Terminal
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class kitty-drop"
+class = "kitty-drop"
+size = "70% 60%"
+margin = 50
+unfocus = "hide"
+
+# Slide-in Volume Control (TUI)
+[scratchpads.volume]
+animation = "fromRight"
+command = "kitty --class pulsemixer-drop -e pulsemixer"
+class = "pulsemixer-drop"
+size = "40% 90%"
+unfocus = "hide"
+
+# Slide-in WiFi/Network Control (TUI)
+[scratchpads.wifi]
+animation = "fromRight"
+command = "kitty --class gazelle-drop -e gazelle"
+class = "gazelle-drop"
+size = "40% 90%"
+unfocus = "hide"
+
+# Layout Center
+[layout_center]
+margin = 30
+offset = [0, 10]

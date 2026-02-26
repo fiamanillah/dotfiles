@@ -1,0 +1,62 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "arch",
+        "color": {
+            "1": "38;2;255;152;0", // Your Signature Orange
+            "2": "white",
+        },
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": {
+            "keys": "38;2;255;152;0",
+            "title": "white",
+        },
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "os",
+            "key": "OS",
+            "format": "Arch Linux {version} {arch} {codename}", // Forced Arch display
+        },
+        "host",
+        "kernel",
+        "uptime",
+        "packages",
+        "shell",
+        "display",
+        "de",
+        "wm",
+        "terminal",
+        {
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true,
+        },
+        "gpu",
+        {
+            "type": "memory",
+        },
+        {
+            "type": "disk",
+            "key": "Disk (Total)",
+            "folders": "/", // This tells it which mounts to look at
+        },
+        {
+            "type": "localip",
+            "key": "Local IP",
+            "showIpv4": true,
+            "showIpv6": true,
+        },
+        {
+            "type": "battery",
+            "key": "Battery",
+        },
+
+        "separator",
+        "colors",
+    ],
+}
