@@ -6,7 +6,7 @@
   "theme.bar.buttons.radius": "0.8em",
   "bar.workspaces.workspaces": 5,
   "bar.workspaces.showWsIcons": true,
-  "bar.workspaces.scroll_speed": 2,
+  "bar.workspaces.scroll_speed": 5,
   "theme.bar.buttons.windowtitle.enableBorder": false,
   "bar.clock.format": "%I:%M%p",
   "bar.clock.icon": "󰥔",
@@ -27,11 +27,13 @@
         "systray",
         "netstat",
         "network",
+        "bluetooth",
         "volume",
         "microphone",
+        "hypridle",
         "battery",
-        "updates",
-        "notifications"
+        "notifications",
+        "power"
       ]
     },
     "1": {
@@ -439,7 +441,7 @@
       "color": "yellow"
     },
     "6": {
-      "icon": "6",
+      "icon": "",
       "color": "#94e2d5"
     },
     "7": {
@@ -499,7 +501,7 @@
       "color": "#a6adc8"
     }
   },
-  "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "0.3em",
+  "theme.bar.buttons.workspaces.numbered_active_highlight_padding": "0.2em",
   "theme.bar.buttons.workspaces.numbered_active_highlight_border": "0.5em",
   "theme.bar.buttons.spacing": "0.2em",
   "bar.workspaces.hideUnoccupied": true,
@@ -561,8 +563,8 @@
   "bar.battery.scrollUp": "brightnessctl set 1%+",
   "bar.battery.scrollDown": "brightnessctl set 1%-",
   "bar.workspaces.numbered_active_indicator": "highlight",
-  "bar.workspaces.spacing": 1,
-  "bar.workspaces.ignored": "-99",
+  "bar.workspaces.spacing": 0.5,
+  "bar.workspaces.ignored": "",
   "bar.customModules.ram.labelType": "percentage",
   "theme.osd.scaling": 100,
   "bar.launcher.icon": "",
@@ -592,13 +594,13 @@
   "menus.dashboard.directories.right.directory2.label": "󰉏   Pictures",
   "menus.dashboard.directories.right.directory3.label": "󱂵   Home",
   "menus.dashboard.directories.left.directory3.label": "󰚝   Projects",
-  "notifications.position": "top",
+  "notifications.position": "bottom right",
   "menus.media.hideAuthor": false,
   "menus.media.hideAlbum": false,
-  "theme.bar.buttons.workspaces.pill.radius": "1.9rem * 6",
-  "theme.bar.buttons.workspaces.pill.height": "4em",
+  "theme.bar.buttons.workspaces.pill.radius": "1.9rem * 0.6",
+  "theme.bar.buttons.workspaces.pill.height": "5em",
   "theme.bar.buttons.workspaces.pill.active_width": "12em",
-  "theme.bar.buttons.workspaces.pill.width": "9em",
+  "theme.bar.buttons.workspaces.pill.width": "5em",
   "bar.media.format": "{title}",
   "theme.bar.buttons.modules.hyprsunset.icon": "#fab387",
   "theme.bar.buttons.modules.hyprsunset.background": "#242438",
@@ -641,7 +643,7 @@
   "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
   "wallpaper.pywal": false,
   "theme.matugen": false,
-  "bar.workspaces.showAllActive": true,
+  "bar.workspaces.showAllActive": false,
   "bar.workspaces.monitorSpecific": true,
   "bar.autoHide": "never",
   "theme.bar.buttons.enableBorders": true,
@@ -668,7 +670,7 @@
   "bar.launcher.autoDetectIcon": false,
   "bar.workspaces.show_numbered": false,
   "bar.workspaces.workspaceMask": false,
-  "theme.bar.buttons.workspaces.numbered_inactive_padding": "0.1em",
+  "theme.bar.buttons.workspaces.numbered_inactive_padding": "0.2em",
   "theme.bar.buttons.volume.enableBorder": false,
   "theme.bar.buttons.clock.spacing": "0.2em",
   "theme.bar.buttons.modules.microphone.enableBorder": false,
@@ -702,5 +704,7 @@
   "menus.dashboard.shortcuts.left.shortcut2.command": "flatpak run org.telegram.desktop",
   "menus.dashboard.shortcuts.left.shortcut2.icon": "",
   "theme.bar.menus.popover.scaling": 75,
-  "menus.clock.weather.enabled": true
+  "menus.clock.weather.enabled": true,
+  "bar.bluetooth.label": false,
+  "bar.customModules.cpuTemp.showUnit": true
 }

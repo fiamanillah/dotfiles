@@ -78,13 +78,13 @@ zinit wait"0" lucid for \
     OMZP::terraform \
     OMZP::postgres \
     OMZP::mongocli \
-    OMZP::dnf
+    OMZP::archlinux
 
 
 
 # ===== System & Productivity =====
 # Fedora specific
-zinit snippet OMZP::dnf
+zinit snippet OMZP::archlinux
 
 
 
@@ -339,14 +339,4 @@ eval "$(zoxide init zsh --cmd j)"
 # bun completions
 [ -s "/home/fiamanillah/.bun/_bun" ] && source "/home/fiamanillah/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

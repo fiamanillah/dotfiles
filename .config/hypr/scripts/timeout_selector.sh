@@ -28,7 +28,6 @@ sed -i "s/timeout = [0-9]*.*# DIM_TIMEOUT/timeout = $DIM                        
 sed -i "s/timeout = [0-9]*.*# LOCK_TIMEOUT/timeout = $LOCK                                # LOCK_TIMEOUT/" "$CONF"
 sed -i "s/timeout = [0-9]*.*# DPMS_TIMEOUT/timeout = $DPMS                                # DPMS_TIMEOUT/" "$CONF"
 
- settings
 killall hypridle
 sleep 0.5
 hyprctl dispatch exec hypridle
