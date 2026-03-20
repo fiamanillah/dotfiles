@@ -1,3 +1,7 @@
+# Locale Settings (Fixes font/icon width rendering bugs in Kitty)
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Paths Start
 
 # User specific environment
@@ -53,7 +57,6 @@ source ~/.cache/zsh/omp.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-syntax-highlighting
 
 
 # ===== Development Tools =====
@@ -96,8 +99,7 @@ zinit light b4b4r07/enhancd
 zinit light urbainvaes/fzf-marks
 zinit light joshskidmore/zsh-fzf-history-search
 
-# Editor integration
-zinit snippet OMZP::vi-mode
+# Editor integration (Removed OMZP::vi-mode to prevent conflicts)
 zinit light jeffreytse/zsh-vi-mode
 
 
@@ -105,6 +107,9 @@ zinit light jeffreytse/zsh-vi-mode
 autoload -Uz compinit && compinit -C
 
 zinit cdreplay -q
+
+# MUST BE LOADED LAST (Fixes ghost character bug)
+zinit light zsh-users/zsh-syntax-highlighting
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -281,7 +286,7 @@ source ~/.cache/zsh/zoxide.zsh
 
 # System info (Commented out for speed. Uncomment if you want fastfetch back)
  if [[ $- == *i* ]] && command -v fastfetch >/dev/null; then
-   fastfetch
+     fastfetch
  fi
 
 # bun completions
