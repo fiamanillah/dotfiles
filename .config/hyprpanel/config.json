@@ -1,6 +1,6 @@
 {
   "bar.customModules.updates.pollingInterval": 1440000,
-  "theme.bar.floating": true,
+  "theme.bar.floating": false,
   "theme.bar.outer_spacing": "0.1em",
   "theme.font.size": "0.9rem",
   "theme.bar.buttons.radius": "0.8em",
@@ -17,7 +17,10 @@
       "left": [
         "dashboard",
         "workspaces",
-        "windowtitle"
+        "windowtitle",
+        "ram",
+        "cpu",
+        "cputemp"
       ],
       "middle": [
         "clock",
@@ -397,9 +400,9 @@
   "theme.bar.buttons.text": "#b4befe",
   "theme.bar.buttons.hover": "#45475a",
   "theme.bar.buttons.icon_background": "#242438",
-  "theme.bar.buttons.background": "#242438",
+  "theme.bar.buttons.background": "#241f31",
   "theme.bar.buttons.style": "default",
-  "theme.bar.background": "#1e1e2e",
+  "theme.bar.background": "#ffa348",
   "theme.osd.label": "#b4beff",
   "theme.osd.icon": "#11111b",
   "theme.osd.bar_overflow_color": "#f38ba7",
@@ -417,8 +420,8 @@
   "theme.notification.actions.text": "#181825",
   "theme.notification.actions.background": "#b4befd",
   "theme.notification.background": "#181826",
-  "theme.bar.transparent": true,
-  "theme.bar.opacity": 85,
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 10,
   "bar.workspaces.workspaceIconMap": {
     "1": {
       "icon": "",
@@ -564,7 +567,7 @@
   "bar.battery.scrollDown": "brightnessctl set 1%-",
   "bar.workspaces.numbered_active_indicator": "highlight",
   "bar.workspaces.spacing": 0.5,
-  "bar.workspaces.ignored": "",
+  "bar.workspaces.ignored": "^-[0-9]+$",
   "bar.customModules.ram.labelType": "percentage",
   "theme.osd.scaling": 100,
   "bar.launcher.icon": "",
@@ -587,7 +590,7 @@
   "theme.bar.buttons.systray.customIcon": "#cdd6f4",
   "theme.bar.border.color": "#b4befe",
   "theme.bar.menus.menu.media.timestamp": "#cdd6f4",
-  "theme.bar.buttons.borderColor": "#b4befe",
+  "theme.bar.buttons.borderColor": "#ff7800",
   "menus.dashboard.directories.right.directory1.label": "󱧶   Documents",
   "menus.dashboard.directories.left.directory2.label": "󰉏   Videos",
   "menus.dashboard.directories.left.directory1.label": "󰉍   Downloads",
@@ -642,8 +645,8 @@
   "menus.clock.weather.key": "41151816b71880d54ede817918a91253",
   "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
   "wallpaper.pywal": false,
-  "theme.matugen": false,
-  "bar.workspaces.showAllActive": false,
+  "theme.matugen": true,
+  "bar.workspaces.showAllActive": true,
   "bar.workspaces.monitorSpecific": true,
   "bar.autoHide": "never",
   "theme.bar.buttons.enableBorders": true,
@@ -656,7 +659,7 @@
     "/"
   ],
   "tear": false,
-  "theme.bar.menus.enableShadow": false,
+  "theme.bar.menus.enableShadow": true,
   "theme.bar.scaling": 80,
   "theme.notification.scaling": 90,
   "theme.bar.buttons.y_margins": "0.1em",
@@ -706,5 +709,10 @@
   "theme.bar.menus.popover.scaling": 75,
   "menus.clock.weather.enabled": true,
   "bar.bluetooth.label": false,
-  "bar.customModules.cpuTemp.showUnit": true
+  "bar.customModules.cpuTemp.showUnit": true,
+  "theme.bar.enableShadow": false,
+  "theme.bar.buttons.monochrome": false,
+  "wallpaper.image": "/home/fiamanillah/Pictures/Wallpapers/wallpaperflare.com_wallpaper (6).jpg",
+  "wallpaper.enable": false,
+  "theme.matugen_settings.mode": "dark"
 }
