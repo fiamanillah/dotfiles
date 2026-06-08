@@ -3,14 +3,14 @@
     "logo": {
         "source": "arch",
         "color": {
-            "1": "38;2;255;152;0", // Your Signature Orange
+            "1": "cyan",
             "2": "white",
         },
     },
     "display": {
         "separator": " ➜  ",
         "color": {
-            "keys": "38;2;255;152;0",
+            "keys": "cyan",
             "title": "white",
         },
     },

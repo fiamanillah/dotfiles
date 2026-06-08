@@ -291,3 +291,7 @@ source ~/.cache/zsh/zoxide.zsh
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/fiamanillah/.local/bin:$PATH"

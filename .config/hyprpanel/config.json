@@ -23,8 +23,7 @@
         "cputemp"
       ],
       "middle": [
-        "clock",
-        "cava"
+        "clock"
       ],
       "right": [
         "systray",
@@ -40,46 +39,10 @@
       ]
     },
     "1": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "clock",
-        "cava"
-      ],
-      "right": [
-        "systray",
-        "netstat",
-        "network",
-        "volume",
-        "microphone",
-        "battery",
-        "updates",
-        "notifications"
-      ]
+      "extends": "0"
     },
     "2": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "clock",
-        "cava"
-      ],
-      "right": [
-        "systray",
-        "netstat",
-        "network",
-        "volume",
-        "microphone",
-        "battery",
-        "updates",
-        "notifications"
-      ]
+      "extends": "0"
     }
   },
   "theme.bar.menus.menu.notifications.icon": "#b4befe",
@@ -645,7 +608,7 @@
   "menus.clock.weather.key": "41151816b71880d54ede817918a91253",
   "theme.bar.buttons.modules.cpuTemp.enableBorder": false,
   "wallpaper.pywal": false,
-  "theme.matugen": true,
+  "theme.matugen": false,
   "bar.workspaces.showAllActive": true,
   "bar.workspaces.monitorSpecific": true,
   "bar.autoHide": "never",
