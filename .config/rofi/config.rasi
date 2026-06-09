@@ -1,117 +1,115 @@
+/* ==========================================
+ * ROFI — dmenu-only config
+ * Used for: cliphist, wallpaper selector, RGB selector, power profile
+ * App launching is handled by fuzzel.
+ * Install: yay -S rofi-wayland
+ * ========================================== */
+
 configuration {
-    modi: "drun,run,window";
+    modi: "drun,dmenu,window";
     show-icons: true;
-    display-drun: "  Apps";
-    display-run: "  Run";
-    display-window: "  Windows";
+    display-dmenu: "  Run";
+    display-window: "  Windows";
     drun-display-format: "{name}";
-    
-    /* Enable mouse hover selection */
     hover-select: true;
     me-select-entry: "";
     me-accept-entry: "MousePrimary";
+    /* Disable drun — fuzzel handles that */
+    drun-categories: "";
 }
 
 * {
-    /* Master Color Palette - Updated with Hex Transparency for Blur */
-    bg: #11111b99;        /* 60% transparent base #11111b */
-    bg-alt: #1e1e2e80;    /* 50% transparent alternate #1e1e2e */
-    bg-selected: #ff980026; /* 15% opacity orange */
-    fg: #cdd6f4;
-    fg-alt: #a6adc8;
-    orange: #ff9800;
-    
-    /* Global Settings */
-    font: "CaskaydiaCove Nerd Font 13";
+    bg:          #11111bdd;
+    bg-alt:      #1e1e2e99;
+    bg-hover:    #313244cc;
+    fg:          #cdd6f4;
+    fg-dim:      #a6adc8;
+    cyan:        #00ffff;
+    cyan-dim:    #00ffff55;
+    border-col:  #00ffff66;
+
+    font:             "CaskaydiaCove Nerd Font 12";
     background-color: transparent;
-    text-color: @fg;
-    margin: 0;
+    text-color:       @fg;
+    margin:  0;
     padding: 0;
     spacing: 0;
 }
 
-/* The Main Floating Window */
+/* ── Main window ───────────────────────── */
 window {
-    width: 750px;
-    border: 2px solid;
-    border-color: #ff980080; /* 50% transparent orange border */
-    border-radius: 20px;
+    width:            620px;
+    border:           2px solid;
+    border-color:     @border-col;
+    border-radius:    16px;
     background-color: @bg;
-    padding: 20px;
+    padding:          16px;
 }
 
-/* The Layout Container */
 mainbox {
     background-color: transparent;
-    spacing: 20px;
+    spacing: 14px;
 }
 
-/* The Search Bar Area */
+/* ── Search bar ────────────────────────── */
 inputbar {
     background-color: @bg-alt;
-    border-radius: 14px;
-    padding: 16px 20px;
-    spacing: 15px;
-    children: [ prompt, entry ];
+    border-radius:    12px;
+    padding:          13px 16px;
+    spacing:          12px;
+    children:         [ prompt, entry ];
 }
 
 prompt {
-    text-color: @orange;
-    font: "CaskaydiaCove Nerd Font Bold 14";
+    text-color:  @cyan;
+    font:        "CaskaydiaCove Nerd Font Bold 13";
     vertical-align: 0.5;
 }
 
 entry {
-    
-    placeholder-color: @fg-alt;
-    text-color: @fg;
-    vertical-align: 0.5;
-    font: "CaskaydiaCove Nerd Font 13";
+    placeholder-color: @fg-dim;
+    text-color:        @fg;
+    vertical-align:    0.5;
 }
 
-/* The Application List (Properly configured to 2 Columns) */
+/* ── List ──────────────────────────────── */
 listview {
     background-color: transparent;
-    columns: 2;
-    lines: 8;
-    spacing: 10px;
+    columns: 1;
+    lines:   8;
+    spacing: 4px;
     scrollbar: false;
-    padding: 5px 0px 0px 0px;
+    padding: 4px 0 0;
     fixed-height: true;
 }
 
-/* Individual List Items */
 element {
-    padding: 10px 15px;
-    border-radius: 12px;
+    padding:          9px 12px;
+    border-radius:    10px;
     background-color: transparent;
-    spacing: 15px;
+    spacing:          12px;
 }
 
-/* Fixes Rofi's ugly default alternating grey lines */
-element normal normal, element alternate normal {
-    text-color: @fg;
+element normal normal,
+element alternate normal {
+    text-color:       @fg;
     background-color: transparent;
 }
 
-/* Hover/Selected items (The Orange Glow) */
 element selected normal {
-    background-color: @bg-selected;
-    text-color: @orange;
-     border: 2px solid;
-    border-color: #ff980080; /* 50% transparent orange border */
-    border-radius: 10px;
-    background-color: @bg;
+    background-color: @bg-hover;
+    text-color:       @cyan;
+    border:           1px solid;
+    border-color:     @border-col;
 }
 
 element-icon {
-    size: 32px; /* Larger, crisper icons */
+    size:             26px;
     background-color: transparent;
 }
 
 element-text {
-    vertical-align: 0.5;
-    text-color: inherit;
+    vertical-align:   0.5;
+    text-color:       inherit;
     background-color: transparent;
-    font: "CaskaydiaCove Nerd Font 13";
 }
